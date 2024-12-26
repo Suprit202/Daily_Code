@@ -1,0 +1,23 @@
+class Solution{
+public:
+	int search(int arr[], int n, int k) {
+	    // code here
+	    int i = 0;
+	    
+	    while(i<n)
+	    {
+	        if(arr[i]==k)
+	        {
+	            return i+1;
+	            break;
+	        }
+	        
+	        else 
+	        {
+	           i++; 
+	        }
+	    }
+	    
+	    return -1;
+	}
+};
