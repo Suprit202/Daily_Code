@@ -1,0 +1,17 @@
+//User function template for C++
+class Solution{
+public:
+	// function to return sum of  1, 2, ... n
+	long long seriesSum(int a) {
+
+     // code here
+
+     long long n = a;
+
+     long long sum =0; 
+
+     sum = (n*n + n)/2;
+
+     return sum;
+	}
+};
