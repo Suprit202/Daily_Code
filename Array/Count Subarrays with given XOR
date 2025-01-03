@@ -1,0 +1,24 @@
+class Solution {
+  public:
+    long subarrayXor(vector<int> &arr, int k) 
+    {
+        // code here
+        long int ans = 0;
+        unordered_map<int,int> m;
+        int curxor = 0;
+        m[0] = 1;
+        for(int i:arr)
+        {
+            curxor = curxor^i;
+            
+            if(m.count(curxor^k))
+            {
+                ans+=m[curxor^k];
+            }
+            
+            m[curxor]++;
+        }
+        
+        return ans;
+    }
+};
