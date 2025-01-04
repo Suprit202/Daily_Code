@@ -1,0 +1,42 @@
+// User function template for C++
+
+class Solution{
+       void solve(vector<string> &ans, vector<vector<int>> &m, string p, int n, int row, int col)
+    {
+        //For obstacle
+        if(m[row][col] == 0)
+            return;
+            
+        //Destination
+        if(row == (n - 1) && col == (n - 1))
+        {
+            ans.push_back(p);
+            return;
+        }
+        
+        m[row][col] = 0;
+        //For up
+        if(row > 0)
+            solve(ans, m, p + 'U', n, row - 1, col);
+        //For down
+        if(row < n - 1)
+            solve(ans, m, p + 'D', n, row + 1, col);
+        //For left
+        if(col > 0)
+            solve(ans, m, p + 'L', n, row, col - 1);
+        //For right
+        if(col < n - 1)
+            solve(ans, m, p + 'R', n, row, col + 1);
+        m[row][col] = 1;
+    }
+    public:
+    vector<string> findPath(vector<vector<int>> &m, int n) {
+        // Your code goes here
+        vector<string> ans;
+        string p;
+        solve(ans, m, p, n, 0, 0);
+        return ans;
+    }
+};
+
+    
